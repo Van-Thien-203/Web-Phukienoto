@@ -1,0 +1,34 @@
+<div class="text-center" style="margin-bottom: 20px;">
+    <h3> Sản phẩm kính trước </h3>
+</div>
+<div class="row">
+    <div class="gia pull-right">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                <i class="fa-solid fa-filter"></i> Lọc theo
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">
+                <i class="fa-solid fa-arrow-up"></i> Giá từ thấp đến cao </a></li>
+              <li><a class="dropdown-item" href="#">
+                <i class="fa-solid fa-arrow-down"></i> Giá từ cao đến thấp</a></li>
+            </ul>
+          </div>
+    </div>
+    <div class="col-sm-4" ng-repeat="kl in kinhlai| limitTo:3:start:begin" style="margin-bottom: 25px; margin-top: 25px;">
+        <div class="card text-center">
+            <img class="poly-prod" src="images/{{kl.image}}">
+            <div class="card-body">
+                <h5 class="card-title"> {{kl.name}} </h5>
+                <p class="card-text">
+                    <span class="badge bg-danger"> {{kl.price}} </span>
+                </p>
+                <a href="#" class="btn btn-danger"> Thêm vào giỏ </a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3">
+        <button class="btn btn-warning py-2 px-2" ng-click = "prev()"> < </button>
+        <button class="btn btn-primary py-2 px-2" ng-click = "next()"> > </button>
+    </div>
+</div>

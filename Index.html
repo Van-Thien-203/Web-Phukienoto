@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Kính Ô Tô </title>
+    <!-- AngularJs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link href="css/poly.css" rel="stylesheet" />
+</head>
+
+
+<body ng-app="myapp">
+    <!--Header-->
+    <header ng-include="'Menu.html'"></header>
+    <hr>
+    <!--Slider-->
+    <div ng-include="'Slider.html'"></div>
+    <div class="container" ng-controller="myctrl">
+        <div class="row">
+            <article class="col-sm-9">
+                <div ng-show="loading" class="label label-info"> Loading... </div>
+                <div ng-view> </div>
+            </article>
+            <aside class="col-sm-3">
+                <div ng-include="'Seard.html'"></div>
+                <div ng-include="'LoaiKinh.html'"></div>
+            </aside>
+        </div>
+    </div>
+    <footer ng-include="'Footer.html'"></footer>
+
+    <script>
+        var app = angular.module("myapp", ["ngRoute"]);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/", {
+                    templateUrl: "TrangChu.html"
+                })
+                .when("/TrangChu", {
+                    templateUrl: "TrangChu.html"
+                })
+                .when("/LoaiKinh/KinhLai", {
+                    templateUrl: "KinhLai.html"
+                })
+                .when("/ThongBao", {
+                    templateUrl: "ThongBao.html"
+                })
+                .when("/GioHang", {
+                    templateUrl: "GioHang.html"
+                })
+                .otherwise({
+                    redirectTo: "/TrangChu"
+                });
+        });
+        app.controller("myctrl", function ($scope, $http) {
+            $scope.listsphot = [];
+            $scope.start = 0;
+            $scope.searchKeyword = '';
+            
+            $scope.prev = function () {
+                $scope.start -= 3;
+            }
+            $scope.next = function () {
+                $scope.start += 3;
+            }
+            $scope.giohang = [];
+            $scope.themsp = function (sp) {
+                var index = $scope.giohang.findIndex(p => p.name == sp.name)
+                if (index >= 0) {
+                    $scope.giohang[index].soluong++;
+                } else {
+                    var spgiohang = { name: sp.name, image: sp.image, price: sp.price, soluong: 1 }
+                    $scope.giohang.push(spgiohang);
+                }
+                console.log($scope.giohang);
+            }
+            
+            $scope.tongtien = function () {
+                var tt = 0;
+                for (i = 0; i < $scope.giohang.length; i++) {
+                    tt += $scope.giohang[i].soluong * $scope.giohang[i].price;
+                }
+                return tt;
+            }
+
+            $scope.xoa = function(index){
+                $scope.giohang.splice(index,1);
+            }
+
+            $scope.sortBy = function (prop) {
+                $scope.prop = prop;
+            }
+
+            $scope.timkiem = function(){
+                $scope.begin = 0;
+            }
+
+
+
+            $http.get("sptrangchu.js").then(
+                function (d) {
+                    $scope.listsphot = d.data;
+                },
+                function (d) {
+                    console.log("Loi lay san pham", d
+                    )
+                })
+            $scope.kinhlai = [];
+            $http.get("spkinhlai.js").then(
+                function (k) {
+                    $scope.kinhlai = k.data;
+                },
+                function (k) {
+                    console.log("Loi lay san pham", k
+                    )
+                })
+
+        });
+
+        app.run(function ($rootScope) {
+            $rootScope.$on('$routeChangeStart', function () {
+                $rootScope.loading = true;
+            });
+            $rootScope.$on('$routeChangeSuccess', function () {
+                $rootScope.loading = false;
+            });
+            $rootScope.$on('$routeChangeError', function () {
+                $rootScope.loading = false;
+                alert("Loi khong tai duoc");
+            });
+        });
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,196 @@
+<header>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="#!TrangChu" style="margin-right: 50px;">
+                    <img src="images/mixi.jpg" alt="">
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#!TrangChu"
+                                style="color: rgb(130, 156, 147);">
+                                <i class="fa-solid fa-house"></i> Trang Chủ </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#LoaiKinh" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" style="color: rgb(130, 156, 147);">
+                                <i class="fa-solid fa-bars"></i> Danh Mục Sản Phẩm
+                            </a>
+                            <ul class="dropdown-menu" style="color: rgb(130, 156, 147); text-align: center;">
+                                <li><a class="dropdown-item" href="#!LoaiKinh/KinhLai"
+                                        style="color: rgb(130, 156, 147);"> Kính Lái </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#LoaiKinh/kinhcuatruoc"
+                                        style="color: rgb(130, 156, 147);"> Kính Cửa Trước
+                                    </a></li>
+                                <li><a class="dropdown-item" href="#" style="color: rgb(130, 156, 147);"> Kính Cửa Sau
+                                    </a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#LoaiKinh/kinhsau"
+                                        style="color: rgb(130, 156, 147);"> Kính Sau </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!ThongBao" style="color: rgb(130, 156, 147);"><i
+                                    class="fa-solid fa-comment"></i> Thông Báo </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#!taikoan" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false" style="color: rgb(130, 156, 147);">
+                                <i class="fa-solid fa-user"></i> Tài Khoản
+                            </a>
+                            <ul class="dropdown-menu" style="color: rgb(130, 156, 147); text-align: center;">  
+                                <li data-bs-toggle="modal" data-bs-target="#dangnhap">
+                                    <a class="dropdown-item" href="#!taikoan/dangnhap"style="color: rgb(130, 156, 147);">
+                                    <i class="fa-solid fa-right-to-bracket"></i> Đăng Nhập </a>
+                                </li>
+                                <li data-bs-toggle="modal" data-bs-target="#dangki">
+                                    <a class="dropdown-item" href="#!taikoan/dangki" style="color: rgb(130, 156, 147);">
+                                    <i class="fa-regular fa-pen-to-square"></i> Đăng Kí </a>
+                                </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#!taikoan/dangxuat"
+                                        style="color: rgb(130, 156, 147);"> <i
+                                            class="fa-solid fa-right-from-bracket"></i> Đăng Xuất </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <form class="d-flex">
+                        <li class="nav-item">
+                            <a href="#" style="text-decoration: none; color: rgb(130, 156, 147);"><i
+                                    class="fa-solid fa-phone"></i> 0963852741</a>
+                        </li>
+                        <li class="nav-item" style="margin-left: 10px; color: rgb(130, 156, 147);">
+                            |
+                        </li>
+                        <li class="nav-item">
+                            <a href="#!GioHang"
+                                style="text-decoration: none; margin-left: 10px; color: rgb(130, 156, 147);"><i
+                                    class="fa-solid fa-cart-shopping"></i>
+                                Giỏ Hàng </a>
+                        </li>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="dangnhap">
+        <!-- Modal -->
+        <div class="modal fade" id="dangnhap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-center" id="dangnhap"> Đăng Nhập </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form class="modal-body" name = "fromloi">
+                        <div class="form-group col-sm-6">
+                            <label for="phoneForm">
+                                <h6> Số điện thoại </h6>
+                            </label>
+                            <input type="tel" name="phone" ng-model="user.phone">
+                            
+                        </div>
+                            <label for="">
+                                <h6> Mật Khẩu </h6>
+                            </label>
+                            <input type="text" name="" id="" class="form-control" placeholder=""
+                                aria-describedby="helpId">
+                            <div class="quenmk">
+                                <a href="#">
+                                    <p> Quên mật khẩu ? </p>
+                                </a>
+                            </div>
+                            <div class="cachkhac">
+                                <h6> Hoặc đăng nhập bẳng : </h6>
+                                <div class="icon">
+                                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary"> Xác Nhận </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="dangki">
+        <!-- Modal -->
+        <div class="modal fade" id="dangki" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 text-center" id="dangki"> Đăng Kí </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group col-sm-6">
+                            <label for="">
+                                <h6> Họ và Tên </h6>
+                            </label>
+                            <input type="text" name="" id="" class="form-control" placeholder=""
+                                aria-describedby="helpId">
+                            <label for="">
+                                <h6> Địa Chỉ </h6>
+                            </label>
+                            <input type="text" name="" id="" class="form-control" placeholder=""
+                                aria-describedby="helpId">
+                            <label for="">
+                                <h6> Số điện thoại </h6>
+                            </label>
+                            <input type="text" name="" id="" class="form-control" placeholder=""
+                                aria-describedby="helpId">
+                            <label for="">
+                                <h6> Email </h6>
+                            </label>
+                            <input type="text" name="" id="" class="form-control" placeholder=""
+                                aria-describedby="helpId">
+                            <label for="">
+                                <h6> Mật Khẩu </h6>
+                            </label>
+                            <input type="text" name="" id="" class="form-control" placeholder=""
+                                aria-describedby="helpId">
+                            <label for="">
+                                <h6> Xác nhận mật Khẩu </h6>
+                            </label>
+                            <input type="text" name="" id="" class="form-control" placeholder=""
+                                aria-describedby="helpId">
+                            <div class="cachkhac">
+                                <h6> Hoặc đăng kí bẳng : </h6>
+                                <div class="icon">
+                                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary"> Xác Nhận </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

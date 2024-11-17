@@ -1,0 +1,34 @@
+<div class="text-center" style="margin-bottom: 20px;">
+    <h3> Sản phẩm Hot </h3>
+</div>
+<div class="row">
+    <div class="gia pull-right">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                <i class="fa-solid fa-filter"></i> Lọc theo
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" ng-click="sortBy('price')">
+                <i class="fa-solid fa-arrow-up"></i> Sắp xếp theo giá </a></li>
+              <li><a class="dropdown-item" ng-click="sortBy('name')">
+                <i class="fa-solid fa-arrow-down"></i> Sắp xếp theo tên </a></li>
+            </ul>
+          </div>
+    </div>
+    <div class="col-sm-4" ng-repeat="sp in listsphot|  orderBy:prop | limitTo:3:start:begin | filter:searchKeyword" style="margin-bottom: 25px; margin-top: 25px;">
+        <div class="card text-center">
+            <img class="poly-prod" src="images/{{sp.image}}">
+            <div class="card-body">
+                <h5 class="card-title"> {{sp.name}} </h5>
+                <p class="card-text">
+                    <span class="badge bg-danger"> {{sp.price}} </span>
+                </p>
+                <a href="#" class="btn btn-danger" ng-click = "themsp(sp)"> Thêm vào giỏ </a>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3">
+        <button class="btn py-2 px-2" ng-click = "prev()"> < </button>
+        <button class="btn py-2 px-2" ng-click = "next()"> > </button>
+    </div>
+</div>

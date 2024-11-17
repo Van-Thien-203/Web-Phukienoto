@@ -1,0 +1,57 @@
+.logo img{
+    height: 70px;
+    background-color: white;
+}
+
+.d-flex{
+    list-style: none;
+}
+
+.banner{
+    margin-bottom: 20px;
+}
+
+.banner img{
+    width: 1515px;
+    height: 603px;
+}
+
+.dropdown-menu{
+    background-color: rgb(230, 232, 217);
+}
+
+.text1{
+    text-align: center;
+}
+
+.form-control{
+    width: 250px;
+}
+
+.search{
+    width: 100px;
+    background-color: rgb(241, 226, 129);
+}
+
+.icon{
+    font-size: 50px;
+}
+
+.hinhanhsp{
+    text-align: center;
+}
+
+.hinhanhsp img{
+    height: 100px;
+}
+
+.poly-prod{
+    height: 320px;
+    max-width: 90%;
+}
+
+.text-bg{
+    text-align: center;
+    background-color: rgb(232, 238, 219);
+    font-size: 15px;
+}
